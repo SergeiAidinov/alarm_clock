@@ -22,7 +22,7 @@ int main(int argc, char * argv[]) {
 	do {
 		time_t mytime = time(NULL);
 		struct tm *now = localtime(&mytime);
-		hour = now->tm_mday;
+		hour = now->tm_mday - 4;
 		minute = now->tm_min;
 		second = now->tm_sec;
 		printw("Alarm clock is set for %d hour(s) %d minute(s)\n", alarm_hour, alarm_minute);
@@ -36,7 +36,7 @@ int main(int argc, char * argv[]) {
 
 	} while (1);
 	system(
-					"play -n synth \
+					"play -n -q synth \
 					pl F4  pl A4  pl C5  pl F5  pl C4  pl G4  pl C5  pl E5  pl D4  pl F4  \
 					pl A4  pl D5  pl A3  pl F4  pl A4  pl C5  pl F5  pl C4  pl G4  pl C5  \
 					pl E5  pl D4  pl F4  pl A4  pl D5  pl A3  pl E4  pl A4  pl C5  pl Bb3 \
