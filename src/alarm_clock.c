@@ -4,7 +4,7 @@
  Author      : Sergei Aidinov
  Version     :
  Copyright   : WTFPL
- Description : Hello World in C, Ansi-style
+ Description : Alarm clock in C, Ansi-style
  ============================================================================
  */
 
