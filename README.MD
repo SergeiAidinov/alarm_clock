@@ -14,5 +14,6 @@
 
 Запуск проекта:
 
-    ./alarm HOUR MINUTES \n
-    , где HOUR и MINUTES - часы и минуты срабатывания будильника. 
+    ./alarm HOUR MINUTES
+
+где HOUR и MINUTES - часы и минуты срабатывания будильника. 
