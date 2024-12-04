@@ -2,9 +2,9 @@
 ![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white)
 ![CLion](https://img.shields.io/badge/CLion-black?style=for-the-badge&logo=clion&logoColor=white)
 
-Учебный проект на языке программирования "Си", иммитирующий работу будильника.
+Учебный проект на языке программирования "Си", имитирующий работу будильника.
 
-Для запуска проекта необходимо установить доплонительные библиотеки следуюзей командой:
+Для запуска проекта необходимо установить доплонительные библиотеки следующей командой:
 
     sudo apt-get install libncurses5-dev libncursesw5-dev
 
