@@ -9,8 +9,10 @@
     sudo apt-get install libncurses5-dev libncursesw5-dev
 
 Компиляция осуществляется командой:
+
     gcc -o alarm alarm_clock.c -lncurses
 
-Запуск проекта: 
-    ./alarm HOUR MINUTES
+Запуск проекта:
+
+    ./alarm HOUR MINUTES \n
     , где HOUR и MINUTES - часы и минуты срабатывания будильника. 
