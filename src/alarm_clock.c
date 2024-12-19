@@ -19,8 +19,7 @@ const int RING_MAX_QTY = 4;
 const int RING_INTERVAL = 1;
 
 void ringing() {
-	static int ring_counter = 0;
-	if (ring_counter == RING_MAX_QTY) exit(0);
+	static int ring_counter = 1;
 	printf("Ringing... %d\n", ring_counter);
 	system(
 					"play -n -q synth \
@@ -45,8 +44,12 @@ void ringing() {
 					+0.700 +0.700 +0.700 +0.700 +0.700 +0.700 +0.700 +0.700 \
 					\
 					remix - fade 0 20 .1 norm -1");
-	alarm_minute += RING_INTERVAL;
 	ring_counter++;
+	if (ring_counter == RING_MAX_QTY + 1) exit(0);
+	if (alarm_minute + RING_INTERVAL > 59) {
+		alarm_minute = alarm_minute + RING_INTERVAL - 60;
+		alarm_hour++;
+	} else alarm_minute += RING_INTERVAL;
 }
 
 void clock_work() {
@@ -78,38 +81,3 @@ int main(int argc, char * argv[]) {
 	clock_work();
 	return EXIT_SUCCESS;
 }
-
-
-	/*system(
-					"play -n -q synth \
-					pl F4  pl A4  pl C5  pl F5  pl C4  pl G4  pl C5  pl E5  pl D4  pl F4  \
-					pl A4  pl D5  pl A3  pl F4  pl A4  pl C5  pl F5  pl C4  pl G4  pl C5  \
-					pl E5  pl D4  pl F4  pl A4  pl D5  pl A3  pl E4  pl A4  pl C5  pl Bb3 \
-					pl D4  pl F4  pl Bb4 pl F3  pl C4  pl F4  pl A4  pl Bb3 pl D4  pl F4  \
-					pl Bb4 pl C4  pl E4  pl G4  pl C5  pl F4  pl A4  pl C5  pl F5  pl C4  \
-					pl G4  pl C5  pl E5  pl D4  pl F4  pl A4  pl D5  pl A3  pl E4  pl A4  \
-					pl C5  pl Bb3 pl D4  pl F4  pl Bb4 pl F3  pl C4  pl F4  pl A4  pl Bb3 \
-					pl D4  pl F4  pl Bb4 pl C4  pl E4  pl G4  pl C5 \
-					pl A4  pl G4  pl F4  pl E4  pl D4  pl C4  pl D4  pl E4 \
-					delay \
-					0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.175 +0.175 +0.175 +0.175 +0.175 +0.175 +0.175 \
-					+0.700 +0.700 +0.700 +0.700 +0.700 +0.700 +0.700 +0.700 \
-					\
-					remix - fade 0 20 .1 norm -1");*/
-	/*refresh();
-	clear();*/
-
-
-
-
-
-
-
-
